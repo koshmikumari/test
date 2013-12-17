@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="ac.il.shenkar.couponHibernet.Coupon" table="COUPONS">
+		<id name="_id" type="int" column="ID" ></id>
+		
+		<property name="_busniess_id">
+			<column name="BUSSNIESS_ID"/>
+		</property>
+		<property name="_description">
+			<column name="DESCRIPTION"/>
+		</property>
+		<property name="_category">
+			<column name="CATEGORY"/>
+		</property>
+		<property name="_price">
+			<column name="PRICE"/>
+		</property>
+		<property name="_image">
+			<column name="IMAGE"/>
+		</property>
+		<property name="_expire_date">
+			<column name="EXPIRE_DATE"/>
+		</property>
+		<property name="_time">
+			<column name="TIME"/>
+		</property>
+		<property name="_name">
+			<column name="NAME"/>
+		</property>
+		
+	</class>
+	
+</hibernate-mapping>
