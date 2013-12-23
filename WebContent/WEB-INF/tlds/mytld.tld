@@ -9,7 +9,7 @@ http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
 		<description>My Example tag</description>
 		<name>myname</name>
 		<tag-class>ac.il.shenkar.couponHibernet.MyFirstTag</tag-class>
-		<body-content>empty</body-content>
+		<body-content>scriptless</body-content>
 		<attribute>
 			<description>First Name</description>
 			<name>firstName</name>

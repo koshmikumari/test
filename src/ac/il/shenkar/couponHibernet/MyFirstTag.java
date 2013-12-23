@@ -20,8 +20,13 @@ public class MyFirstTag extends SimpleTagSupport
 
 	public void doTag() throws JspException, IOException
 	{
-		
+		StringWriter buffer = new StringWriter();
+		getJspBody().invoke(buffer);
+		String newStr = buffer.toString().toUpperCase();
 		JspWriter out = getJspContext().getOut();
+		out.print(newStr);
+		
+		out = getJspContext().getOut();
 		out.print("<p>"+firstName + " " + lastName + "</p>");
 		
 	}

@@ -356,7 +356,7 @@ public class Controller extends HttpServlet
 		{
 			/* cookies */
 			// get cookie and check if the user exist
-			Cookie[] cookies = request.getCookies();
+			/*Cookie[] cookies = request.getCookies();
 			if (cookies != null && cookies.length>1)
 			{
 				for (int i = 0; i < cookies.length; i++)
@@ -377,12 +377,12 @@ public class Controller extends HttpServlet
 				}
 			}
 			else
-			{
+			{*/
 			request.setAttribute("timestamp", new java.util.Date());
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/index.jsp");
 			dispatcher.forward(request, response);
-			}
+			//}
 		}
 	}
 

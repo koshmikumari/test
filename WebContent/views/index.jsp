@@ -9,9 +9,8 @@
 </head>
 
 <%@ taglib uri="/WEB-INF/tlds/mytld.tld" prefix="test" %>
-<test:myname firstName="avishay" lastName="hajbi"/>
-<test:myname firstName="elad" lastName="silvering"></test:myname>
-
+<test:myname firstName="avishay" lastName="hajbi"> developer</test:myname>
+<test:myname firstName="elad" lastName="silvering"> developer</test:myname>
 
 <body>
 <a href="../controller/help" name="help">HELP</a><br>
