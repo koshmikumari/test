@@ -15,8 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import antlr.collections.impl.*;
+import java.util.Vector;
 
 /**
  * Servlet implementation class CouponsPlatformController
@@ -53,40 +52,43 @@ public class Controller extends HttpServlet
 		 */
 		String str = request.getPathInfo();
 		
-		//index page
-		if (str.equals("/*"))
-		{
-			/* cookies */
-			// get cookie and check if the user exist
-			Cookie[] cookies = request.getCookies();
-			if (cookies != null && cookies.length>1)
-			{
-				for (int i = 0; i < cookies.length; i++)
-				{
-					String name = cookies[i].getName();
-					String value = cookies[i].getValue();
-					System.out.println("name = " + name + " value = " + value);
-					User user = DAO.getInstance().getUser(value);
-					if (user != null)
-					{
-						response.addCookie(cookies[i]);
-						request.setAttribute("usernameweb", cookies[i].getValue());
-						request.setAttribute("timestamp", new java.util.Date());
-						RequestDispatcher dispatcher = getServletContext()
-								.getRequestDispatcher("/views/loggedin.jsp");
-						dispatcher.forward(request, response);
-					}
-				}
-			}
-			/* end cookies */
-			else
-			{
-				request.setAttribute("timestamp", new java.util.Date());
-				RequestDispatcher dispatcher = getServletContext()
-						.getRequestDispatcher("/views/index.jsp");
-				dispatcher.forward(request, response);
-			}
-		}
+		  if (str.equals("/") || str.equals("/*"))
+          {
+                  /* cookies */
+                  // get cookie and check if the user exist
+                  Cookie[] cookies = request.getCookies();
+                  if (cookies != null && cookies.length>1)
+                  {
+                          for (int i = 0; i < cookies.length; i++)
+                          {
+                                  String name = cookies[i].getName();
+                                  String value = cookies[i].getValue();
+                                  System.out.println("name = " + name + " value = " + value);
+                                  User user = DAO.getInstance().getUser(value);
+                                  if (user != null)
+                                  {
+                                
+                                          response.addCookie(cookies[i]);
+                                          request.setAttribute("usernameweb", cookies[i].getValue());
+                                          request.setAttribute("timestamp", new java.util.Date());
+                                          RequestDispatcher dispatcher = getServletContext()
+                                                          .getRequestDispatcher("/views/loggedin.jsp");
+                                          dispatcher.forward(request, response);
+                                  }
+                          }
+                  }
+                  /* end cookies */
+                  else
+                  {
+                          request.setAttribute("timestamp", new java.util.Date());
+                          RequestDispatcher dispatcher = getServletContext()
+                                          .getRequestDispatcher("/views/index.jsp");
+                          dispatcher.forward(request, response);
+                  }
+                
+          }
+          // about page
+	
 		// about page
 		else if (str.equals("/about"))
 		{
@@ -96,7 +98,7 @@ public class Controller extends HttpServlet
 					.getRequestDispatcher("/views/about.jsp");
 			dispatcher.forward(request, response);
 		}
-		// back link to loggedin
+
 		else if (str.equals("/back"))
 		{
 			
@@ -280,7 +282,7 @@ public class Controller extends HttpServlet
 			{
 				Coupon c = (Coupon) vector.elementAt(i);
 				System.out.println(c.get_id());
-				vec.appendElement(c);
+				vec.addElement(c);
 			}
 			request.setAttribute("size", vec.size());
 			request.setAttribute("vec", vec);
@@ -303,19 +305,19 @@ public class Controller extends HttpServlet
 		{
 			
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/updatecoupon.jsp");
+					.getRequestDispatcher("/views/updateCouponPreview.jsp");
 			dispatcher.forward(request, response);
 
 		}
-		// delete coupon after preview
-		else if (str.equals("/deleteCouponPreview"))
-		{
-			
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/deletecoupon.jsp");
-			dispatcher.forward(request, response);
-
-		}
+//		// delete coupon after preview
+//		else if (str.equals("/deleteCouponPreview"))
+//		{
+//			
+//			RequestDispatcher dispatcher = getServletContext()
+//					.getRequestDispatcher("/views/deleteCouponPreview.jsp");
+//			dispatcher.forward(request, response);
+//
+//		}
 		// coupon categories page
 		else if (str.equals("/couponcategories"))
 		{
@@ -335,7 +337,7 @@ public class Controller extends HttpServlet
 			{
 				Coupon c = (Coupon) vector.elementAt(i);
 				System.out.println(c.get_id());
-				vec.appendElement(c);
+				vec.addElement(c);
 			}
 			request.setAttribute("vec", vec);
 			RequestDispatcher dispatcher = getServletContext()
@@ -679,12 +681,118 @@ public class Controller extends HttpServlet
 			}
 
 		}
+		//delete coupon preview
+		else if (str.equals("/deleteCouponPreview"))
+		{
+			String couponId = (String) request.getParameter("couponid");
+			Coupon coupon = DAO.getInstance().getCoupon(
+					Integer.parseInt(couponId));
+			if (coupon != null)
+			{
+				request.setAttribute("actionAnswer", "Your coupon id : "
+						+ coupon.get_id() + " was deleted");
+				DAO.getInstance().deleteCoupon(Integer.parseInt(couponId));
+				RequestDispatcher dispatcher = getServletContext()
+						.getRequestDispatcher("/views/showcoupons.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+		}
+		
+		else if (str.equals("/backAfterUpdate"))
+		{
+			String couponid, businessid, description, category, price, image, expiredate = null;
+			couponid = request.getParameter("couponid");
+			businessid = request.getParameter("businessid");
+			description = request.getParameter("description");
+			category = request.getParameter("category");
+			price = request.getParameter("price");
+			image = request.getParameter("image");
+			expiredate = request.getParameter("expiredate");
+			String time = request.getParameter("time");
+			Coupon c = null;
 
+			if (!(couponid.matches(".*\\d.*")))
+			{
+
+				request.setAttribute("answer", "please insert only numbers");
+				RequestDispatcher dispatcher = getServletContext()
+						.getRequestDispatcher("/views/updateCouponPreview.jsp");
+				dispatcher.forward(request, response);
+			}
+			else
+			{
+				c = DAO.getInstance().getCoupon(Integer.parseInt(couponid));
+				if (c == null)
+				{
+					request.setAttribute("answer", "coupon was not found");
+					RequestDispatcher dispatcher = getServletContext()
+							.getRequestDispatcher("/views/updateCouponPreview.jsp");
+					dispatcher.forward(request, response);
+				}
+				else
+				{
+					if (price.length() > 1)
+					{
+						if (price.matches("^[-+]?\\d+(\\.{0,1}(\\d+?))?$"))
+							c.set_price(Double.parseDouble(price));
+					}
+					if (businessid.length() > 1)
+					{
+
+						if (businessid.matches(".*\\d.*"))
+						{
+							c.set_busniess_id(Integer.parseInt(businessid));
+						}
+					}
+					if (category.length() > 1)
+					{
+						c.set_category(category);
+					}
+
+					if (description.length() > 1)
+					{
+						c.set_description(description);
+					}
+					if (image.length() > 1)
+					{
+						c.set_image(image);
+					}
+					if (expiredate.length() > 1)
+					{
+						 try
+						 {
+						 SimpleDateFormat sdf = new SimpleDateFormat(
+						 "dd-mm-yyyy");
+						 sdf.setLenient(false);
+						 sdf.parse(expiredate);
+						 c.set_expire_date(expiredate);
+						 }
+						 catch (ParseException ex)
+						 {
+							 System.out.println("expire date crashed");
+						 }
+					}
+					if (time.length() > 1)
+					{
+						c.set_time(time);
+					}
+					
+					DAO.getInstance().updateCoupon(c);
+					request.setAttribute("actionAnswer", "coupon was updated");
+					RequestDispatcher dispatcher = getServletContext()
+							.getRequestDispatcher("/views/loggedin.jsp");
+					dispatcher.forward(request, response);
+
+				}
+			}
+			
+		}
 		//delete coupon
 		else if (str.equals("/deletecoupon"))
 		{
 			String couponId = (String) request.getParameter("couponId");
-
+			
 			if (couponId.length() > 0 && couponId.matches(".*\\d.*"))
 			{
 
@@ -727,6 +835,17 @@ public class Controller extends HttpServlet
 			}
 		}
 		//update coupon
+		
+		else if (str.equals("/updateCouponPreview"))
+		{
+			String couponId = (String) request.getParameter("couponid");
+			Coupon coupon = DAO.getInstance().getCoupon(
+					Integer.parseInt(couponId));
+				request.setAttribute("coupon", coupon);
+				RequestDispatcher dispatcher = getServletContext()
+						.getRequestDispatcher("/views/updateCouponPreview.jsp");
+				dispatcher.forward(request, response);
+		}
 		else if (str.equals("/updatecoupon"))
 		{
 
@@ -1065,7 +1184,7 @@ public class Controller extends HttpServlet
 							if (c.get_busniess_id() == b._id)
 							{
 								num++;
-								v.appendElement(c);
+								v.addElement(c);
 								System.out.println("coupon id: " + c.get_id()
 										+ " business id: "
 										+ c.get_busniess_id());
@@ -1111,7 +1230,8 @@ public class Controller extends HttpServlet
 			if ((expDate.after(currDate)))
 			{
 				System.out.println("db valid dates:" + expDate);
-				v.appendElement(tempOb);
+				v.add(tempOb);
+				
 			}
 			
 			

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
 	pageEncoding="windows-1255"%>
- <%@ page import="ac.il.shenkar.couponHibernet.* , java.util.Iterator,java.text.*,java.util.* , antlr.collections.impl.Vector;" %>
+ <%@ page import="ac.il.shenkar.couponHibernet.* , java.util.Iterator,java.text.*,java.util.* ;" %>
     <%@ page errorPage="error.jsp" %>
 
 <html>
@@ -12,11 +12,15 @@
 <body>
 	<h2>show coupons</h2>
 
+
 	<%
 		Object size = request.getAttribute("size");
 		Object list = request.getAttribute("vec");
 		Vector v = (Vector)list;
-		out.println(size+" coupons founded:<br>");
+		if (size == null)
+		out.println("0 coupons found:<br>");
+		else out.println(size+" coupons found:<br>");
+
 		if (v != null){
 		for (int i = 0; i < v.size(); i++) {
 			Coupon tempOb = (Coupon)v.elementAt(i);
@@ -27,15 +31,14 @@
 	<br>
 
 	<h3>Coupon details</h3>
+			image: <img src="../views/<%out.print((tempOb).get_image());%>" width="100" height="100"><br>
+	
 	<%
-			out.print("image: "+(tempOb).get_image()+"<br>");
 			out.print("category: "+(tempOb).get_category()+"<br>");
 			out.print("price: "+(tempOb).get_price()+"<br>");
 			out.print("expire date: "+(tempOb).get_expire_date()+"<br>");
 	%>
-	<div>
-		<img src="../views/<%out.print((tempOb).get_image());%>" width="10">
-	</div>
+
 
 	<div>
 		<%
@@ -43,14 +46,14 @@
 			out.print("description: "+(tempOb).get_description());
 		%>
 	</div>
-
-	<form action="../controller/updateCouponPreview" method="get">
-		<input type="hidden" name="couponId"
+	
+	<form action="/webstore/controller/updateCouponPreview" method="POST">
+		<input type="hidden" name="couponid"
 			value="<%out.print((tempOb).get_id());%>"> 
 			<input type="submit" value="update">
 	</form>
 
-	<form action="../controller/deleteCouponPreview" method="get">
+	<form action="/webstore/controller/deleteCouponPreview" method="POST">
 		<input type="hidden" name="couponid"
 			value="<%out.print((tempOb).get_id());%>"> 
 			<input type="submit" value="delete">

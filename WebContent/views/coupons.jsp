@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
 	pageEncoding="windows-1255"%>
 <%@ page
-	import="ac.il.shenkar.couponHibernet.* , java.util.Iterator,java.text.*,java.util.* , antlr.collections.impl.Vector;"%>
+	import="ac.il.shenkar.couponHibernet.* , java.util.Iterator,java.text.*,java.util.* ;"%>
 <%@ page errorPage="error.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,14 +24,14 @@
 	%>
 
 	<h3>Coupon details</h3>
-	<%
-			out.print("image: "+(tempOb).get_image()+"<br>");
+	
+	<%		
 			out.print("category: "+(tempOb).get_category()+"<br>");
 			out.print("price: "+(tempOb).get_price()+"<br>");
 			out.print("expire date: "+(tempOb).get_expire_date()+"<br>");
 	%>
 	<div>
-		<img src="../views/<%out.print((tempOb).get_image());%>" width="10">
+		image: <img src="../views/<%out.print((tempOb).get_image());%>" width="100" height="100">
 	</div>
 
 	<div>

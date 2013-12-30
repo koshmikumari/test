@@ -15,7 +15,8 @@
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- Mapping files -->
-		<mapping resource="storeinventory.hbm.xml"/>
+		<!--  <mapping resource="storeinventory.hbm.xml"/>  -->
+		<mapping class="ac.il.shenkar.couponHibernet.Coupon"/>
 		<mapping class="ac.il.shenkar.couponHibernet.Business"/>
 		<mapping class="ac.il.shenkar.couponHibernet.User"/>
 </session-factory>

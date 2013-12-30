@@ -1,5 +1,9 @@
 package ac.il.shenkar.couponHibernet;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Coupon {
 	int _id;
 	int _busniess_id;
@@ -25,7 +29,7 @@ public class Coupon {
 		_name = name;
 	}
 
-
+	@Id
 	public int get_id() {
 		return _id;
 	}
