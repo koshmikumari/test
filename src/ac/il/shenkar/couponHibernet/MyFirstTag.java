@@ -27,7 +27,7 @@ public class MyFirstTag extends SimpleTagSupport
 		out.print(newStr);
 		
 		out = getJspContext().getOut();
-		out.print("<p>"+firstName + " " + lastName + "</p>");
+		out.print(""+firstName + " " + lastName + "");
 		
 	}
 
