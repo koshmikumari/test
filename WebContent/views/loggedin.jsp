@@ -14,7 +14,7 @@
 
 
 <!-- Bootstrap core CSS -->
-<link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+<link href="../views/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="justified-nav.css" rel="stylesheet">
@@ -48,6 +48,7 @@
 				<li class="active"><a href="../controller/back">Home</a></li>
 				<li><a href="../controller/addcoupon" name="addcoupon">ADD-COUPON</a></li>
 				<li><a href="../controller/updatecoupon" name="updatecoupon">UPDATE-COUPON</a></li>
+				<li><a href="../controller/deletecoupon" name="deletecoupon">DELETE-COUPON</a></li>
 				<li><a href="../controller/addbusiness" name="addbusiness">ADD-BUSINESS</a></li>
 				<li><a href="../controller/deletebusiness"
 					name="deletebusiness">DELETE-BUSINESS</a></li>

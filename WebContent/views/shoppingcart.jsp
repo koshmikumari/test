@@ -15,7 +15,7 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+    <link href="../views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">

@@ -21,7 +21,7 @@
     </style>
 
     <!-- Bootstrap core CSS -->
-    <link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+    <link href="../views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">
@@ -74,7 +74,7 @@
         <p><%! String submit; %>
 
 
-<form action="/webstore/controller/couponcategories" method="GET">
+<form action="../controller/couponcategories" method="GET">
   <ul >
     <li id = "#tabs-1"><input type="submit" value="sport" name="Submit"></li>
     <li id = "#tabs-2"><input type="submit" value="travel" name="Submit"></li>
@@ -89,7 +89,7 @@
   {
   	Object list = request.getAttribute("vec");
   	Vector v = (Vector)list;
-  	if (v != null){
+  	if (v != null && !v.isEmpty()){
   		for (int i = 0; i < v.size(); i++) {
   			Coupon tempOb = (Coupon)v.elementAt(i);
   			if(tempOb.get_category().equals(submit))

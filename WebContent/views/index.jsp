@@ -11,10 +11,8 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    
-
     <!-- Bootstrap core CSS -->
-    <link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+    <link href="../views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">
@@ -53,7 +51,7 @@
         <h1>Admin Log In!</h1>
         <p class="lead"></p>
         <p><a class="btn btn-lg btn-success" href="../controller/login" name="login" role="button">Log In</a>
-       <!--  <a class="btn btn-lg btn-success" href="../controller/register" name="register" role="button">Register</a> --></p>
+   		<!--  <a class="btn btn-lg btn-success" href="../controller/register" name="register" role="button">Register</a> --> </p>
       </div>
 
       <!-- Example row of columns -->

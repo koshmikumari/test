@@ -142,6 +142,24 @@ public class Controller extends HttpServlet
 			dispatcher.forward(request, response);
 		}
 
+          //category page
+        else if (str.equals("/categories"))
+        {
+                
+                RequestDispatcher dispatcher = getServletContext()
+                                .getRequestDispatcher("/views/categories.jsp");
+                dispatcher.forward(request, response);
+
+        }
+        // update coupon after preview
+        else if (str.equals("/updateCouponPreview"))
+        {
+                
+                RequestDispatcher dispatcher = getServletContext()
+                                .getRequestDispatcher("/views/updateCouponPreview.jsp");
+                dispatcher.forward(request, response);
+
+        }
 		// Contact page
 		else if (str.equals("/contact"))
 		{
@@ -291,33 +309,7 @@ public class Controller extends HttpServlet
 			dispatcher.forward(request, response);
 
 		}
-		//category page
-		else if (str.equals("/categories"))
-		{
-			
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/categories.jsp");
-			dispatcher.forward(request, response);
 
-		}
-		// update coupon after preview
-		else if (str.equals("/updateCouponPreview"))
-		{
-			
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/updateCouponPreview.jsp");
-			dispatcher.forward(request, response);
-
-		}
-//		// delete coupon after preview
-//		else if (str.equals("/deleteCouponPreview"))
-//		{
-//			
-//			RequestDispatcher dispatcher = getServletContext()
-//					.getRequestDispatcher("/views/deleteCouponPreview.jsp");
-//			dispatcher.forward(request, response);
-//
-//		}
 		// coupon categories page
 		else if (str.equals("/couponcategories"))
 		{

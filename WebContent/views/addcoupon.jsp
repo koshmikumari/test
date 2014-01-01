@@ -27,7 +27,7 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 <!-- Bootstrap core CSS -->
-<link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+<link href="../views/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="justified-nav.css" rel="stylesheet">
@@ -71,7 +71,7 @@
 			<h1>Add Coupon</h1>
 			<p class="lead"></p>
 			<p>
-			<form action="/webstore/controller/addcoupon" method="POST">
+			<form action="../controller/addcoupon" method="POST">
 				<p></p>
 				<!--  <input id="firstname" class="" name="firstname" type="text"  
 value="First Name" onfocus="if (this.value == 'First Name') {this.value = '';}" 

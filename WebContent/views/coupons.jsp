@@ -16,7 +16,7 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+    <link href="../views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">
@@ -60,7 +60,7 @@
         	<%
 		Object list = request.getAttribute("list");
 		Vector v = (Vector) list;
-		if (v != null) {
+		if (v != null && !v.isEmpty()) {
 			for (int i = 0; i < v.size(); i++) {
 
 				Coupon tempOb = (Coupon) v.elementAt(i);

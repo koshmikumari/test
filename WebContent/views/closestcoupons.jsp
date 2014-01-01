@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
     pageEncoding="windows-1255"%>
     <%@ page errorPage="error.jsp" %>
-    <%@ page import="ac.il.shenkar.couponHibernet.* , java.util.Iterator,java.text.*,java.util.* , antlr.collections.impl.Vector;" %>
+    <%@ page import="ac.il.shenkar.couponHibernet.* , java.util.Iterator,java.text.*,java.util.* ;" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -15,7 +15,7 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+    <link href="../views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">
@@ -54,7 +54,7 @@
         <h1></h1>
         <p class="lead"></p>
         <p>
-        	<form action="/webstore/controller/closestcoupons" method="POST">
+        	<form action="../controller/closestcoupons" method="POST">
 		longitude: <input type="text" name="longitude"><br> 
 		latitude: <input type="text" name="latitude"><br>
 		<!-- radius (m): <input type="text" name="radius" value="1000" onfocus="if (this.value == '1000') {this.value = '';}" 
@@ -69,7 +69,7 @@
 		String ans = (String)answer;
 		if (ans != null)
 			out.println(answer + "<br/>\n ");
-		if (v != null)
+		if (v != null && !v.isEmpty())
 		{
 			for (int i=0; i < v.size();i++)
 			{
@@ -79,13 +79,12 @@
 			
 				<h3>Coupon details</h3>
 	<%
-			out.print("image: "+(tempOb).get_image()+"<br>");
 			out.print("category: "+(tempOb).get_category()+"<br>");
 			out.print("price: "+(tempOb).get_price()+"<br>");
 			out.print("expire date: "+(tempOb).get_expire_date()+"<br>");
 	%>
 	<div>
-		<img src="../views/<%out.print((tempOb).get_image());%>" width="10">
+			image: <img src="../views/<%out.print((tempOb).get_image());%>" width="100" height="100"><br>
 	</div>
 
 	<div>

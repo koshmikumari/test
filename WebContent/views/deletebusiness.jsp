@@ -14,7 +14,7 @@
 
 
 <!-- Bootstrap core CSS -->
-<link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+<link href="../views/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="justified-nav.css" rel="stylesheet">
@@ -57,7 +57,7 @@
 			<h1>Delete Business</h1>
 			<p class="lead"></p>
 			<p>
-				<form action="/webstore/controller/deletebusiness" method="POST">
+				<form action="../controller/deletebusiness" method="POST">
 		business id: <input type="text" name="businessid"><br> 
 		<input type="submit" value="Submit">
 	</form>

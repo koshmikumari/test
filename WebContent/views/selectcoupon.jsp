@@ -14,7 +14,7 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+    <link href="../views/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="justified-nav.css" rel="stylesheet">
@@ -52,7 +52,7 @@
       <div class="jumbotron">
         <h1>Select Coupon</h1>
         <p class="lead"></p>
-        <p><form action="/webstore/controller/selectcoupon" method="POST">
+        <p><form action="../controller/selectcoupon" method="POST">
 		coupon id: <input type="text" name="couponId"><br> <input
 			type="submit" value="Submit">
 		<!-- <Button name="subbmit" href="/webstore/controller/coupon" name="coupon">COUPON</Button> -->

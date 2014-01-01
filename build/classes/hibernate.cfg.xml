@@ -7,10 +7,11 @@
 			com.mysql.jdbc.Driver
 		</property>
 		<property name="hibernate.connection.url">
-			jdbc:mysql://LocalHost:3306/jaja
+			<!--  jdbc:mysql://LocalHost:3306/jaja       gaga and jaja-->
+			jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/webstoredb
 		</property>
-		<property name="hibernate.connection.username">jaja</property>
-		<property name="hibernate.connection.password">gaga</property>
+		<property name="hibernate.connection.username">avishay</property>
+		<property name="hibernate.connection.password">avishay</property>
 		<property name="show_sql">true</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>

@@ -14,7 +14,7 @@
 
 
 <!-- Bootstrap core CSS -->
-<link href="/webstore/views/css/bootstrap.css" rel="stylesheet">
+<link href="../views/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="justified-nav.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 			<h1>Update Business</h1>
 			<p class="lead"></p>
 			<p>
-			<form action="/webstore/controller/updatebusiness" method="POST">
+			<form action="../controller/updatebusiness" method="POST">
 				<p></p>
 				<!--  <input id="firstname" class="" name="firstname" type="text"  
 value="First Name" onfocus="if (this.value == 'First Name') {this.value = '';}" 
