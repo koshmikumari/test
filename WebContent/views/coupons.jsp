@@ -74,7 +74,7 @@
 			out.print("expire date: "+(tempOb).get_expire_date()+"<br>");
 	%>
 	<div>
-		image: <img src="../views/<%out.print((tempOb).get_image());%>" width="100" height="100">
+		image: <img src="<%out.print((tempOb).get_image());%>" width="100" height="100">
 	</div>
 
 	<div>

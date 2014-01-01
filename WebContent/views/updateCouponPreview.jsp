@@ -69,7 +69,7 @@
 
 		<!-- Jumbotron -->
 		<div class="jumbotron">
-			<h1>Add Coupon</h1>
+			<h1>Update Coupon</h1>
 			<p class="lead"></p>
 			<p>
 			<form action="../controller/backAfterUpdate" method=POST>

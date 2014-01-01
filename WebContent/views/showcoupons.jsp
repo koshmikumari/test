@@ -76,7 +76,7 @@
 	<br>
 
 	<h3>Coupon details</h3>
-			image: <img src="../views/<%out.print((tempOb).get_image());%>" width="100" height="100"><br>
+			image: <img src="<%out.print((tempOb).get_image());%>" width="100" height="100"><br>
 	
 	<%
 			out.print("category: "+(tempOb).get_category()+"<br>");
@@ -92,13 +92,13 @@
 		%>
 	</div>
 	
-	<form action="/webstore/controller/updateCouponPreview" method="POST">
+	<form action="../controller/updateCouponPreview" method="POST">
 		<input type="hidden" name="couponid"
 			value="<%out.print((tempOb).get_id());%>"> 
 			<input type="submit" value="update">
 	</form>
 
-	<form action="/webstore/controller/deleteCouponPreview" method="POST">
+	<form action="../controller/deleteCouponPreview" method="POST">
 		<input type="hidden" name="couponid"
 			value="<%out.print((tempOb).get_id());%>"> 
 			<input type="submit" value="delete">
