@@ -1,0 +1,21 @@
+{
+  "name": "Coupon",
+  "description": "webstore",
+  "version": "0.0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "128": "icon.png"
+  },
+  "app": {
+    "urls": [
+      "http://webstore.avishay.cloudbees.net/controller/index/"
+    ],
+	"browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "http://webstore.avishay.cloudbees.net/controller/index"
+  },
+    "launch": {
+      "web_url": "http://webstore.avishay.cloudbees.net/controller/index"
+    }
+  }
+}

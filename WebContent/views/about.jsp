@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
     pageEncoding="windows-1255"%>
     <%@ page errorPage="error.jsp" %>
+    <%@ page import ="javax.servlet.http.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -27,6 +28,31 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    
+   <script type="text/javascript">
+function loadXMLDoc(url)//the parameter url for our resource
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();//creating a new object for ajax
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");//creating a new object for ajax
+  }
+xmlhttp.onreadystatechange=function()//Stores a function (or the name of a function) to be called //automatically each time the readyState property changes
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)//if status is succes and request is processed
+    {
+    document.getElementById('p1').innerHTML=new Date();//getting all response data
+//alert(xmlhttp.getResponseHeader('Content-Type'));//getting specific response data
+//alert(xmlhttp.responseText);
+    }
+  }
+xmlhttp.open("GET",url,true);//it is making a get request with our url asynchronously
+xmlhttp.send();
+}
+</script>
   </head>
 
   <body>
@@ -52,11 +78,12 @@
       <div class="jumbotron">
         <h1></h1>
         <p class="lead"></p>
+       
+        <p id="p1">  </p>
+        <button onclick="loadXMLDoc('xmlhttp_info.txt')">Get Date</button>
+
         <p>
-        <%
-	Object ob = request.getAttribute("timestamp");
-	out.println(ob);
-%>
+	<br/>
         </p>
       </div>
 

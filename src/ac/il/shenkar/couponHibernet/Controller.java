@@ -1,12 +1,14 @@
 package ac.il.shenkar.couponHibernet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import java.util.Vector;
 
 /**
@@ -96,9 +99,9 @@ public class Controller extends HttpServlet
 			request.setAttribute("timestamp", new java.util.Date());
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/about.jsp");
-			dispatcher.forward(request, response);
+			dispatcher.forward(request, response);			
 		}
-
+	
 		else if (str.equals("/back"))
 		{
 			
@@ -544,11 +547,12 @@ public class Controller extends HttpServlet
 					}
 				}
 				if (coupon != null) {
+					request.setAttribute("couponbeen", coupon);
 					request.setAttribute(
 							"answer",
 							"Your coupon id request is: " + coupon.get_id()
 									+ "<br/> description: "
-									+ coupon.get_category() + "<br/>\n");
+									+ coupon.get_description() + "<br/>\n");
 					request.setAttribute("couponid",coupon.get_id());
 				}
 				else
