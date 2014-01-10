@@ -1,7 +1,11 @@
 package ac.il.shenkar.couponHibernet;
 
 import java.util.Iterator;
-
+/**
+ * 
+ * @author limor elad avishay
+ *
+ */
 public interface IUserDAO {
 
 		   public abstract User getUser(String username);

@@ -1,7 +1,11 @@
 package ac.il.shenkar.couponHibernet;
 
 import java.util.Iterator;
-
+/**
+ * 
+ * @author Avishay Elad Limor
+ * 
+ */
 public interface IBusinessDAO {
 
 		   public abstract Business getBusiness(int id);
