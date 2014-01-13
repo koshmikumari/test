@@ -82,8 +82,8 @@
 value="First Name" onfocus="if (this.value == 'First Name') {this.value = '';}" 
 onblur="if (this.value == '') {this.value = 'First Name';}" /> -->
 
-		coupon id: <input type="text" name="couponid" value="(importent)"
-			onfocus="if (this.value == '(importent)') {this.value = '';}"
+		coupon id: <input type="text" name="couponid" value="(important)"
+			onfocus="if (this.value == '(important)') {this.value = '';}"
 			onblur="if (this.value == '') {this.value = '(importent)';}"><br>
 		business id: <input type="text" name="businessid"><br>
 		description: <input type="text" name="description"><br> <label

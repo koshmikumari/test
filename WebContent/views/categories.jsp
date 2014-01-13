@@ -95,8 +95,12 @@
   			if(tempOb.get_category().equals(submit))
   			{
   				out.println(tempOb.toString());
-  				out.println(" <a href=\"shoppingcart.jsp?id="+tempOb.get_id()+"\">buy</a>"+"<br/>");
-
+%>
+<form  action="../controller/shoppingcart" method="GET">
+		<input type="hidden" name="id" value="<%out.print((tempOb).get_id());%>">
+		<input type="submit" value="buy" />
+		</form>
+<%
   			}
   		}
   	}

@@ -1,0 +1,21 @@
+
+cloudbees App Connection
+-----------------------------------
+לייצר אפליקצייה באתר עם אותו שם של הפרוייקט באקליפס
+לייצר דאטאבייס חדש
+להוריד SDK של cloudbees
+להוריד plugin לאקליפס של cloudbees
+לעשות configuration ל plugin מתוך האקליפס ולהתחבר ל User
+לפתוח את ה Console  של ה SDK ולעשות bind  בין ה Application ל Database
+ex:
+	(http://wiki.cloudbees.com/bin/view/RUN/DatabaseGuide)
+	($ bees app:bind -a APPID -db DATABASE_ID -as mydb)
+
+להתחבר עם ה User כשה Console יבקש.
+
+לעשות deploy לפרוייקט מתוך האקליפס
+ולבדוק שהוא תואם את ה Tomcat, 
+	במידה ולא, לשנות ב application באתר, 
+	ולרשום ב SDK את הפקודה שכוללת את ה path to war & tomcat 7
+ex:
+	(bees app:deploy -a APPID -t tomcat7 myapp/build/a.war)

@@ -63,8 +63,9 @@
       <!-- Site footer -->
       <div class="footer">
         <%@ taglib uri="/WEB-INF/tlds/mytld.tld" prefix="test" %>
-<test:myname firstName="avishay" lastName="hajbi"> developer</test:myname>
-<test:myname firstName="elad" lastName="silvering"> developer</test:myname>
+<test:myname firstName="avishay" lastName="hajbi"> developer </test:myname><br>
+<test:myname firstName="elad" lastName="silvering"> developer </test:myname><br>
+<test:myname firstName="lemor" lastName="golan"> developer </test:myname>
       </div>
 
     </div> <!-- /container -->

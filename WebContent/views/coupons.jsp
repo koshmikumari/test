@@ -81,8 +81,11 @@
 		<%
 			out.print("coupon id: "+(tempOb).get_id()+"<br>");
 			out.print("description: "+(tempOb).get_description());
-			out.println("<br/>"+" <a href=\"shoppingcart.jsp?id="+tempOb.get_id()+"\">buy</a>");
 		%>
+		<form  action="../controller/shoppingcart" method="GET">
+		<input type="hidden" name="id" value="<%out.print((tempOb).get_id());%>">
+		<input type="submit" value="buy" />
+		</form>
 	</div>
 <br><br><br><br>
 	<%

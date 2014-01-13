@@ -12,7 +12,6 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    
 
     <!-- Bootstrap core CSS -->
     <link href="../views/css/bootstrap.css" rel="stylesheet">
@@ -30,7 +29,7 @@
     <![endif]-->
   </head>
 
-  <body>
+ <body >
 
     <div class="container">
 
@@ -57,6 +56,7 @@
         
         
         <%
+       
 		//getting our dao
 		ICouponDAO dao = DAO.getInstance();
 	
@@ -69,12 +69,7 @@
 		}
 	
 		//adding the product if id was sent
-		String str = request.getParameter("id");
-		if(str!=null)
-		{
-			int id = Integer.parseInt(str);
-			cart.addCouponToCart(dao.getCoupon(id));
-		}
+		
 		
 		//printing out the content of the shopping cart
 		out.println("<table>");
@@ -95,6 +90,7 @@
 			out.println("</tr>");
 		}
 	%>
+	
 	</p>
       </div>
 

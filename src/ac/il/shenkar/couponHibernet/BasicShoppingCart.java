@@ -9,9 +9,7 @@ public class BasicShoppingCart implements IShoppingCart{
 
 	Vector<ShoppingCartRow> rows = new Vector<ShoppingCartRow>(); 
 	
-	/**
-	 *  
-	 */
+	
 	@Override
 	public void addCouponToCart(Coupon coupon)  {
 		/*check if there is already a row with this product

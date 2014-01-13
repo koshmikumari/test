@@ -84,8 +84,12 @@
 			description <jsp:getProperty property="_description" name="couponbeen" />
 			<br>
 	<%
-			out.println(" <a href=\"shoppingcart.jsp?id="+couponid+"\">buy</a>"+"<br/>");
-			}
+%>
+<form  action="../controller/shoppingcart" method="GET">
+		<input type="hidden" name="id" value="<%out.print(couponid);%>">
+		<input type="submit" value="buy" />
+		</form>
+<%			}
 		else{
 			if (answer != null)
 			out.println(answer);

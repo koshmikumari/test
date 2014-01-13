@@ -90,7 +90,7 @@ public class Controller extends HttpServlet
                   }
                 
           }
-          // about page
+        
 	
 		// about page
 		else if (str.equals("/about"))
@@ -277,8 +277,20 @@ public class Controller extends HttpServlet
 		// shopping cart
 		else if (str.contains("/shoppingcart"))
 		{
-			String id = request.getParameter("id");
-			request.setAttribute("id", id);
+			String sid = request.getParameter("id");
+			IShoppingCart cart = (IShoppingCart)request.getSession().getAttribute("cart");
+			if(cart==null)
+			{
+				cart = new BasicShoppingCart();
+				request.getSession().setAttribute("cart",cart);
+			}
+			ICouponDAO dao = DAO.getInstance();
+			if(sid!=null)
+			{
+				int id = Integer.parseInt(sid);
+				cart.addCouponToCart(dao.getCoupon(id));
+			}
+				
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/shoppingcart.jsp");
 			dispatcher.forward(request, response);
